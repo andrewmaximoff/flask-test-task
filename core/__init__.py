@@ -31,6 +31,11 @@ def create_app():
     app.register_blueprint(auth.bp)
     app.register_blueprint(records.bp)
 
+    from .views.error import page_not_found, internal_server_error, forbidden
+    app.register_error_handler(404, page_not_found)
+    app.register_error_handler(500, internal_server_error)
+    app.register_error_handler(403, forbidden)
+
     return app
 
 
