@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ipython = "*"
+flask-shell-ipython = "*"
+isort = "*"
+
+[packages]
+flask = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+flask-wtf = "*"
+flask-moment = "*"
+gunicorn = "*"
+
+[requires]
+python_version = "3.6"

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block navbar %}
+  {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+  <div class="container page">
+    {% for record in records %}
+      <div class="container">
+        {% if g.user == record.user %}
+          <p><a href="{{ url_for('records.update', record_id=record.id)}}"><b>ID:</b> {{ record.id }}</a></p>
+        {% else %}
+          <p><b>ID:</b> {{ record.id }}</p>
+        {% endif %}
+        <p><b>Description:</b> {{ record.description }}</p>
+        <p><b>Author:</b> {{ record.user.first_name }} {{ record.user.last_name }}</p>
+        <p><b>Publication date:</b> {{ moment(record.pub_date).format('LLL') }}</p>
+        <hr>
+      </div>
+    {% endfor %}
+    <div class="container">
+      {% if prev_url %}
+        <div class="pull-left">
+          <a href="{{ prev_url }}">Newer records</a>
+        </div>
+      {% endif %}
+      {% if next_url %}
+      <div class="pull-right">
+        <a href="{{ next_url }}">Older records</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('records.create') }}">Create record</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if g.user %}
+          <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
+        {% else %}
+          <li><a href="{{ url_for('auth.register') }}">Register</a>
+          <li><a href="{{ url_for('auth.login') }}">Log In</a>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
