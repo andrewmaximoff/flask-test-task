@@ -16,3 +16,14 @@ class Config(object):
         f'{POSTGRES["pw"]}@{POSTGRES["host"]}:{POSTGRES["port"]}/{POSTGRES["db"]}'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 3
+
+    CACHE = {
+        'CACHE_TYPE': 'RedisCache',
+        'CACHE_REDIS_HOST': 'localhost',
+        'CACHE_REDIS_PORT': '6379',
+        'CACHE_REDIS_PASSWORD': 'pass1234',
+        'CACHE_REDIS_DB': 'redis',
+        'CACHE_REDIS_URL': 'redis://redis:pass1234@localhost:6379/2',
+    }
+
+    SESSION_TYPE = 'redis'

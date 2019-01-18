@@ -3,6 +3,8 @@ from flask_wtf.csrf import CSRFProtect
 from flask_moment import Moment
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_cache import Cache
+from flask_session import Session
 
 from core.config import Config
 
@@ -10,6 +12,8 @@ db = SQLAlchemy()
 migrate = Migrate()
 csrf = CSRFProtect()
 moment = Moment()
+cache = Cache(config=Config.CACHE)
+session = Session()
 
 
 def create_app():
@@ -20,8 +24,11 @@ def create_app():
     csrf.init_app(app)
     migrate.init_app(app, db)
     moment.init_app(app)
+    cache.init_app(app)
+    session.init_app(app)
 
     @app.route('/')
+    @cache.cached(timeout=50)
     def index():
         return redirect(url_for('records.index'))
 
