@@ -13,7 +13,7 @@ migrate = Migrate()
 csrf = CSRFProtect()
 moment = Moment()
 cache = Cache(config=Config.CACHE)
-session = Session()
+session_redis = Session()
 
 
 def create_app():
@@ -25,10 +25,10 @@ def create_app():
     migrate.init_app(app, db)
     moment.init_app(app)
     cache.init_app(app)
-    session.init_app(app)
+    session_redis.init_app(app)
 
-    @app.route('/')
     @cache.cached(timeout=50)
+    @app.route('/')
     def index():
         return redirect(url_for('records.index'))
 
