@@ -20,6 +20,8 @@
         <p><b>Publication date:</b> {{ moment(record.pub_date).format('LLL') }}</p>
         <hr>
       </div>
+    {% else %}
+        <h1>Oops! No records.</h1>
     {% endfor %}
     <div class="container">
       {% if prev_url %}

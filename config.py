@@ -1,10 +1,13 @@
 import os
+from dotenv import load_dotenv
 
-# basedir = os.path.abspath(os.path.dirname(__file__))
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, 'config', '.env'))
 
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or '__CHANGE-ME__'
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     POSTGRES = {
         'user': os.getenv('APPLICATION_POSTGRES_USER', 'postgres'),
         'pw': os.getenv('APPLICATION_POSTGRES_PW', ''),
@@ -27,3 +30,5 @@ class Config(object):
     }
 
     SESSION_TYPE = 'redis'
+
+    ENV = os.getenv('FLASK_ENV', 'production')

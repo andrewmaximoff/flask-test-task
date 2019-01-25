@@ -17,9 +17,10 @@ psycopg2-binary = "*"
 flask-wtf = "*"
 flask-moment = "*"
 gunicorn = "*"
-flask-cache = "*"
 flask-session = "*"
 redis = "*"
+python-dotenv = "*"
+flask-caching = "*"
 
 [requires]
 python_version = "3.6"
