@@ -59,7 +59,7 @@ def create():
     return render_template('records/create.html', form=form)
 
 
-@bp.route('/<int:record_id>/update', methods=('GET', 'POST'))
+@bp.route('/<record_id>/update', methods=('GET', 'POST'))
 @login_required
 def update(record_id):
     """Update a new record for the current user."""
@@ -76,7 +76,7 @@ def update(record_id):
     return render_template('records/update.html', form=form, record_id=record_id)
 
 
-@bp.route('/<int:record_id>/delete', methods=('POST',))
+@bp.route('/<record_id>/delete', methods=('POST',))
 @login_required
 def delete(record_id):
     """Delete a record."""

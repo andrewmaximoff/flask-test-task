@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  postgres:
+      image: postgres:10
+      environment:
+          - POSTGRES_USER=flask_user
+          - POSTGRES_PASSWORD=password
+          - POSTGRES_DB=flask_test_task
+      ports:
+          - 5432:5432
+
+  redis:
+    image: redis:4
+    ports:
+        - 6379:6379

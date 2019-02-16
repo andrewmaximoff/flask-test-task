@@ -20,6 +20,7 @@ gunicorn = "*"
 flask-cache = "*"
 flask-session = "*"
 redis = "*"
+flask-caching = "*"
 
 [requires]
 python_version = "3.6"

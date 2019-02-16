@@ -18,7 +18,7 @@ class Config(object):
     POSTS_PER_PAGE = 3
 
     CACHE = {
-        'CACHE_TYPE': 'RedisCache',
+        'CACHE_TYPE': 'redis',
         'CACHE_REDIS_HOST': 'localhost',
         'CACHE_REDIS_PORT': '6379',
         'CACHE_REDIS_PASSWORD': 'pass1234',
